@@ -44,18 +44,11 @@ function Tools() {
     "Read an article about productivity",
     "Stretch for 5 minutes",
     "Drink a glass of water",
-    
-    // Work Tasks
-    "Review your quarterly goals",
-    "Update your project timeline",
-    "Prepare for tomorrow's meetings",
-    "Organize your desk or workspace",
-    "Respond to pending emails",
-    "Create a presentation outline",
-    "Research industry trends",
-    "Update your LinkedIn profile",
-    "Schedule calls for next week",
-    "Document a process you frequently do",
+    "Create a to-do list for tomorrow",
+    "Unsubscribe from unwanted email newsletters",
+    "Set up calendar reminders for upcoming events",
+    "Organize your digital photos",
+    "Update your password manager",
     
     // Personal Development
     "Read a chapter of a book",
@@ -68,6 +61,11 @@ function Tools() {
     "Listen to an educational podcast",
     "Take an online assessment or quiz",
     "Research a topic you're curious about",
+    "Create a vision board for your goals",
+    "Write a letter to your future self",
+    "Learn a new skill on YouTube",
+    "Practice mindfulness for 5 minutes",
+    "Review and update your personal budget",
     
     // Health & Wellness
     "Do a quick 7-minute workout",
@@ -80,6 +78,11 @@ function Tools() {
     "Plan your exercise for the week",
     "Take a screen break and rest your eyes",
     "Practice deep breathing for 5 minutes",
+    "Try a new yoga pose",
+    "Make a smoothie with fruits and vegetables",
+    "Check your step count for the day",
+    "Stretch your neck and shoulders",
+    "Write down your sleep schedule for the week",
     
     // Home Tasks
     "Declutter one small area",
@@ -91,7 +94,12 @@ function Tools() {
     "Vacuum one room",
     "Organize one drawer",
     "Plan weekend activities",
-    "Check smoke detector batteries"
+    "Check smoke detector batteries",
+    "Clean your microwave",
+    "Dust your bookshelves",
+    "Organize your spice rack",
+    "Wash your bed sheets",
+    "Clean your bathroom mirror"
   ];
 
   // Pomodoro Timer Logic
