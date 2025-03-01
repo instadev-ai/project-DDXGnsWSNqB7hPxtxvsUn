@@ -15,9 +15,16 @@ const Index = () => {
             <CardTitle className="text-2xl text-white text-center">Get Started</CardTitle>
             <CardDescription className="text-center text-white/80">Your journey begins here</CardDescription>
           </CardHeader>
-          <CardContent className="text-center pb-2">
-            <p className="text-white/90">
+          <CardContent className="space-y-4 text-white/90 text-center pb-2">
+            <p>
               This enhanced website showcases modern design with beautiful gradients and glass-like effects.
+            </p>
+            <p>
+              Explore the possibilities of AI-powered web development. This entire website was created by artificial intelligence, 
+              from concept to code, demonstrating how technology can simplify and enhance the creative process.
+            </p>
+            <p>
+              The future of web design is here - where beautiful interfaces can be generated in seconds with just a simple prompt.
             </p>
           </CardContent>
           <CardFooter className="flex justify-center gap-4 pt-2">
@@ -30,8 +37,9 @@ const Index = () => {
           </CardFooter>
         </Card>
         
-        <div className="mt-8 text-center">
+        <div className="mt-8 text-center space-y-2">
           <p className="text-white/70 text-sm">Created with ❤️ using React & Tailwind CSS</p>
+          <p className="text-white/70 text-sm">100% designed and developed by AI</p>
         </div>
       </div>
     </div>
