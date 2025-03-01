@@ -36,23 +36,31 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-slate-900">
       {/* Mobile Navigation */}
-      <div className="md:hidden flex items-center justify-between p-4 bg-white shadow-sm">
-        <h1 className="text-xl font-bold">Todo App</h1>
+      <div className="md:hidden flex items-center justify-between p-4 bg-slate-800 border-b border-slate-700">
+        <h1 className="text-xl font-bold text-slate-100">Todo App</h1>
         <Sheet>
           <SheetTrigger asChild>
-            <Button variant="ghost" size="icon">
+            <Button variant="ghost" size="icon" className="text-slate-300 hover:text-emerald-300 hover:bg-transparent">
               <Menu className="h-6 w-6" />
             </Button>
           </SheetTrigger>
-          <SheetContent side="left">
-            <div className="flex flex-col gap-4 mt-8">
+          <SheetContent side="left" className="bg-slate-800 border-r border-slate-700 p-0">
+            <div className="flex flex-col gap-1 p-4">
+              <div className="flex items-center px-4 py-3 mb-6 border-b border-slate-700">
+                <Home className="h-5 w-5 text-emerald-400 mr-2" />
+                <h2 className="text-lg font-bold text-slate-100">Todo App</h2>
+              </div>
               {navItems.map((item) => (
                 <Button
                   key={item.path}
-                  variant={isActive(item.path) ? "default" : "ghost"}
-                  className="justify-start"
+                  variant="ghost"
+                  className={`justify-start rounded-lg mb-1 ${
+                    isActive(item.path) 
+                      ? "bg-slate-700 text-emerald-300" 
+                      : "text-slate-300 hover:text-emerald-300 hover:bg-slate-800"
+                  }`}
                   onClick={() => navigate(item.path)}
                 >
                   {item.icon}
@@ -66,14 +74,21 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
 
       {/* Desktop Navigation */}
       <div className="hidden md:flex">
-        <div className="w-64 bg-white h-screen shadow-sm p-6 flex flex-col">
-          <h1 className="text-2xl font-bold mb-8">Todo App</h1>
-          <div className="flex flex-col gap-2">
+        <div className="w-64 bg-slate-800 border-r border-slate-700 h-screen p-6 flex flex-col">
+          <div className="flex items-center mb-8">
+            <Home className="h-5 w-5 text-emerald-400 mr-2" />
+            <h1 className="text-xl font-bold text-slate-100">Todo App</h1>
+          </div>
+          <div className="flex flex-col gap-1">
             {navItems.map((item) => (
               <Button
                 key={item.path}
-                variant={isActive(item.path) ? "default" : "ghost"}
-                className="justify-start"
+                variant="ghost"
+                className={`justify-start rounded-lg mb-1 ${
+                  isActive(item.path) 
+                    ? "bg-slate-700 text-emerald-300" 
+                    : "text-slate-300 hover:text-emerald-300 hover:bg-slate-800"
+                }`}
                 onClick={() => navigate(item.path)}
               >
                 {item.icon}
@@ -82,7 +97,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
             ))}
           </div>
         </div>
-        <div className="flex-1">
+        <div className="flex-1 overflow-auto">
           <div className="p-8">{children}</div>
         </div>
       </div>
