@@ -85,7 +85,7 @@ const Index = () => {
                     onClick={() => navigate('/dashboard')}>
                 Explore
               </Button>
-              <Button variant="ghost" className="text-white border-white hover:bg-white/20 transition-all duration-300">
+              <Button className="bg-indigo-600 text-white hover:bg-indigo-700 transition-all duration-300 shadow-lg">
                 Learn More
               </Button>
             </CardFooter>
