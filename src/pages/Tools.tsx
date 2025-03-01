@@ -31,8 +31,9 @@ function Tools() {
   const [taskDescription, setTaskDescription] = useState("");
   const [estimatedTime, setEstimatedTime] = useState<number | null>(null);
   
-  // Task Ideas
+  // Task Ideas - Expanded list with more variety
   const taskIdeas = [
+    // Productivity Tasks
     "Clean out your email inbox",
     "Update your resume",
     "Plan meals for the week",
@@ -42,7 +43,55 @@ function Tools() {
     "Write in a journal",
     "Read an article about productivity",
     "Stretch for 5 minutes",
-    "Drink a glass of water"
+    "Drink a glass of water",
+    
+    // Work Tasks
+    "Review your quarterly goals",
+    "Update your project timeline",
+    "Prepare for tomorrow's meetings",
+    "Organize your desk or workspace",
+    "Respond to pending emails",
+    "Create a presentation outline",
+    "Research industry trends",
+    "Update your LinkedIn profile",
+    "Schedule calls for next week",
+    "Document a process you frequently do",
+    
+    // Personal Development
+    "Read a chapter of a book",
+    "Practice meditation for 10 minutes",
+    "Learn 5 new vocabulary words",
+    "Watch an educational video",
+    "Practice a language on a learning app",
+    "Write down three things you're grateful for",
+    "Set a personal goal for the month",
+    "Listen to an educational podcast",
+    "Take an online assessment or quiz",
+    "Research a topic you're curious about",
+    
+    // Health & Wellness
+    "Do a quick 7-minute workout",
+    "Prepare a healthy snack",
+    "Schedule your medical checkups",
+    "Track your water intake today",
+    "Go for a 15-minute walk",
+    "Try a new healthy recipe",
+    "Do a posture check and stretching",
+    "Plan your exercise for the week",
+    "Take a screen break and rest your eyes",
+    "Practice deep breathing for 5 minutes",
+    
+    // Home Tasks
+    "Declutter one small area",
+    "Water your plants",
+    "Make a grocery list",
+    "Clean out your refrigerator",
+    "Sort through mail and papers",
+    "Wipe down kitchen counters",
+    "Vacuum one room",
+    "Organize one drawer",
+    "Plan weekend activities",
+    "Check smoke detector batteries"
   ];
 
   // Pomodoro Timer Logic
