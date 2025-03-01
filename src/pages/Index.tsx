@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 p-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-indigo-600 via-blue-700 to-teal-500 p-4">
       <div className="max-w-md w-full">
         <div className="text-center mb-8">
           <h1 className="text-5xl font-bold text-white mb-2 drop-shadow-lg">Hello World</h1>
@@ -28,7 +28,7 @@ const Index = () => {
             </p>
           </CardContent>
           <CardFooter className="flex justify-center gap-4 pt-2">
-            <Button className="bg-white text-purple-600 hover:bg-white/90 transition-all duration-300 shadow-lg">
+            <Button className="bg-white text-indigo-600 hover:bg-white/90 transition-all duration-300 shadow-lg">
               Explore
             </Button>
             <Button variant="outline" className="text-white border-white hover:bg-white/20 transition-all duration-300">
