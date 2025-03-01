@@ -6,7 +6,14 @@ import {
   SheetTrigger 
 } from "@/components/ui/sheet";
 import { useNavigate, useLocation } from "react-router-dom";
-import { Menu } from "lucide-react";
+import { 
+  Menu, 
+  LayoutDashboard, 
+  CheckSquare, 
+  ListTodo, 
+  Home, 
+  Wrench 
+} from "lucide-react";
 
 interface DashboardLayoutProps {
   children: ReactNode;
@@ -21,10 +28,11 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
   };
 
   const navItems = [
-    { name: "Dashboard", path: "/dashboard" },
-    { name: "Tasks", path: "/dashboard/tasks" },
-    { name: "Completed", path: "/dashboard/completed" },
-    { name: "Home", path: "/" }
+    { name: "Dashboard", path: "/dashboard", icon: <LayoutDashboard className="h-4 w-4 mr-2" /> },
+    { name: "Tasks", path: "/dashboard/tasks", icon: <ListTodo className="h-4 w-4 mr-2" /> },
+    { name: "Completed", path: "/dashboard/completed", icon: <CheckSquare className="h-4 w-4 mr-2" /> },
+    { name: "Tools", path: "/dashboard/tools", icon: <Wrench className="h-4 w-4 mr-2" /> },
+    { name: "Home", path: "/", icon: <Home className="h-4 w-4 mr-2" /> }
   ];
 
   return (
@@ -47,6 +55,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
                   className="justify-start"
                   onClick={() => navigate(item.path)}
                 >
+                  {item.icon}
                   {item.name}
                 </Button>
               ))}
@@ -67,6 +76,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
                 className="justify-start"
                 onClick={() => navigate(item.path)}
               >
+                {item.icon}
                 {item.name}
               </Button>
             ))}

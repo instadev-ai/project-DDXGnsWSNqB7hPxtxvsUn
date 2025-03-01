@@ -3,6 +3,7 @@ import Index from "./pages/Index";
 import Dashboard from "./pages/Dashboard";
 import Tasks from "./pages/Tasks";
 import CompletedTasks from "./pages/CompletedTasks";
+import Tools from "./pages/Tools";
 import NotFound from "./pages/NotFound";
 import { TodoProvider } from "./context/TodoContext";
 import "./App.css";
@@ -16,6 +17,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/dashboard/tasks" element={<Tasks />} />
           <Route path="/dashboard/completed" element={<CompletedTasks />} />
+          <Route path="/dashboard/tools" element={<Tools />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </TodoProvider>
