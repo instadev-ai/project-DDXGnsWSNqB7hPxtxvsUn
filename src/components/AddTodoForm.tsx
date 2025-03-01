@@ -3,7 +3,7 @@ import { useTodo } from "@/context/TodoContext";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { CardTitle } from "@/components/ui/card";
 import { PlusCircle } from "lucide-react";
 
 const AddTodoForm = () => {
@@ -21,21 +21,22 @@ const AddTodoForm = () => {
   };
 
   return (
-    <Card className="mb-6">
-      <CardHeader className="pb-3">
-        <CardTitle className="text-xl flex items-center">
-          <PlusCircle className="mr-2 h-5 w-5" />
+    <div>
+      <div className="mb-4">
+        <CardTitle className="text-xl flex items-center text-slate-100">
+          <PlusCircle className="mr-2 h-5 w-5 text-emerald-400" />
           Add New Task
         </CardTitle>
-      </CardHeader>
+      </div>
       <form onSubmit={handleSubmit}>
-        <CardContent className="space-y-4">
+        <div className="space-y-4">
           <div className="space-y-2">
             <Input
               placeholder="Task title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               required
+              className="bg-slate-700 border-slate-600 text-slate-100 placeholder:text-slate-400 focus-visible:ring-emerald-500"
             />
           </div>
           <div className="space-y-2">
@@ -44,16 +45,20 @@ const AddTodoForm = () => {
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               rows={3}
+              className="bg-slate-700 border-slate-600 text-slate-100 placeholder:text-slate-400 focus-visible:ring-emerald-500"
             />
           </div>
-        </CardContent>
-        <CardFooter>
-          <Button type="submit" className="w-full">
+        </div>
+        <div className="mt-4">
+          <Button 
+            type="submit" 
+            className="w-full bg-emerald-500 hover:bg-emerald-600 text-white"
+          >
             Add Task
           </Button>
-        </CardFooter>
+        </div>
       </form>
-    </Card>
+    </div>
   );
 };
 

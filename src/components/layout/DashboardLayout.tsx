@@ -12,7 +12,8 @@ import {
   CheckSquare, 
   ListTodo, 
   Home, 
-  Wrench 
+  Wrench,
+  Sparkles
 } from "lucide-react";
 
 interface DashboardLayoutProps {
@@ -32,6 +33,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
     { name: "Tasks", path: "/dashboard/tasks", icon: <ListTodo className="h-4 w-4 mr-2" /> },
     { name: "Completed", path: "/dashboard/completed", icon: <CheckSquare className="h-4 w-4 mr-2" /> },
     { name: "Tools", path: "/dashboard/tools", icon: <Wrench className="h-4 w-4 mr-2" /> },
+    { name: "Gil's Page", path: "/dashboard/gil", icon: <Sparkles className="h-4 w-4 mr-2" /> },
     { name: "Home", path: "/", icon: <Home className="h-4 w-4 mr-2" /> }
   ];
 
