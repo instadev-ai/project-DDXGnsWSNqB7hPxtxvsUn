@@ -12,7 +12,7 @@ function Index() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-r from-indigo-600 via-blue-700 to-teal-500">
+    <div className="min-h-screen flex flex-col bg-indigo-600">
       {/* Header Navigation */}
       <header className="w-full bg-white/10 backdrop-blur-sm p-4 shadow-md">
         <div className="container mx-auto flex flex-wrap items-center justify-between">
