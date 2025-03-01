@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { 
   Clock, 
   Calendar, 
@@ -12,7 +12,8 @@ import {
   Shuffle, 
   Zap, 
   Lightbulb, 
-  Trash
+  Trash,
+  Bell
 } from "lucide-react";
 
 function Tools() {
@@ -20,6 +21,8 @@ function Tools() {
   const [pomodoroMinutes, setPomodoroMinutes] = useState(25);
   const [pomodoroSeconds, setPomodoroSeconds] = useState(0);
   const [pomodoroActive, setPomodoroActive] = useState(false);
+  const [timerComplete, setTimerComplete] = useState(false);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
   
   // Random Task Generator
   const [randomTask, setRandomTask] = useState("");
@@ -42,6 +45,63 @@ function Tools() {
     "Drink a glass of water"
   ];
 
+  // Pomodoro Timer Logic
+  useEffect(() => {
+    if (pomodoroActive) {
+      timerRef.current = setInterval(() => {
+        if (pomodoroSeconds === 0) {
+          if (pomodoroMinutes === 0) {
+            clearInterval(timerRef.current as NodeJS.Timeout);
+            setPomodoroActive(false);
+            setTimerComplete(true);
+            playAlarmSound();
+            return;
+          }
+          setPomodoroMinutes(pomodoroMinutes - 1);
+          setPomodoroSeconds(59);
+        } else {
+          setPomodoroSeconds(pomodoroSeconds - 1);
+        }
+      }, 1000);
+    } else if (timerRef.current) {
+      clearInterval(timerRef.current);
+    }
+
+    return () => {
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
+    };
+  }, [pomodoroActive, pomodoroMinutes, pomodoroSeconds]);
+
+  // Play a beep sound when timer completes
+  const playAlarmSound = () => {
+    const audio = new Audio('https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3');
+    audio.play().catch(e => console.log('Audio play failed:', e));
+  };
+
+  // Toggle pomodoro timer
+  const togglePomodoro = () => {
+    setTimerComplete(false);
+    setPomodoroActive(!pomodoroActive);
+  };
+
+  // Reset pomodoro timer
+  const resetPomodoro = () => {
+    setPomodoroMinutes(25);
+    setPomodoroSeconds(0);
+    setPomodoroActive(false);
+    setTimerComplete(false);
+  };
+
+  // Set pomodoro duration
+  const setPomodoroDuration = (minutes: number) => {
+    setPomodoroMinutes(minutes);
+    setPomodoroSeconds(0);
+    setPomodoroActive(false);
+    setTimerComplete(false);
+  };
+
   // Generate random task
   const generateRandomTask = () => {
     const randomIndex = Math.floor(Math.random() * taskIdeas.length);
@@ -56,19 +116,6 @@ function Tools() {
     const randomFactor = Math.random() * 10 - 5; // -5 to +5 minutes
     const time = Math.max(5, Math.round(baseTime + randomFactor));
     setEstimatedTime(time);
-  };
-
-  // Toggle pomodoro timer
-  const togglePomodoro = () => {
-    setPomodoroActive(!pomodoroActive);
-    // In a real app, we would implement the actual timer functionality here
-  };
-
-  // Reset pomodoro timer
-  const resetPomodoro = () => {
-    setPomodoroMinutes(25);
-    setPomodoroSeconds(0);
-    setPomodoroActive(false);
   };
 
   return (
@@ -99,9 +146,17 @@ function Tools() {
             </CardHeader>
             <CardContent>
               <div className="flex flex-col items-center">
-                <div className="text-6xl font-bold mb-6">
+                <div className={`text-6xl font-bold mb-6 ${timerComplete ? 'text-green-500 animate-pulse' : ''}`}>
                   {String(pomodoroMinutes).padStart(2, '0')}:{String(pomodoroSeconds).padStart(2, '0')}
                 </div>
+                
+                {timerComplete && (
+                  <div className="flex items-center justify-center mb-6 bg-green-100 text-green-800 p-3 rounded-md">
+                    <Bell className="h-5 w-5 mr-2 animate-bounce" />
+                    <span>Time's up! Take a break.</span>
+                  </div>
+                )}
+                
                 <div className="flex gap-4 mb-6">
                   <Button 
                     onClick={togglePomodoro}
@@ -114,9 +169,24 @@ function Tools() {
                   </Button>
                 </div>
                 <div className="grid grid-cols-3 gap-2 w-full max-w-xs">
-                  <Button variant="ghost" onClick={() => setPomodoroMinutes(15)}>15 min</Button>
-                  <Button variant="ghost" onClick={() => setPomodoroMinutes(25)}>25 min</Button>
-                  <Button variant="ghost" onClick={() => setPomodoroMinutes(50)}>50 min</Button>
+                  <Button 
+                    variant={pomodoroMinutes === 15 ? "default" : "ghost"} 
+                    onClick={() => setPomodoroDuration(15)}
+                  >
+                    15 min
+                  </Button>
+                  <Button 
+                    variant={pomodoroMinutes === 25 ? "default" : "ghost"} 
+                    onClick={() => setPomodoroDuration(25)}
+                  >
+                    25 min
+                  </Button>
+                  <Button 
+                    variant={pomodoroMinutes === 50 ? "default" : "ghost"} 
+                    onClick={() => setPomodoroDuration(50)}
+                  >
+                    50 min
+                  </Button>
                 </div>
               </div>
             </CardContent>
