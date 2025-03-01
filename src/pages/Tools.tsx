@@ -6,13 +6,10 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useState, useEffect, useRef } from "react";
 import { 
   Clock, 
-  Calendar, 
   Calculator, 
   Timer, 
   Shuffle, 
   Zap, 
-  Lightbulb, 
-  Trash,
   Bell
 } from "lucide-react";
 
@@ -31,74 +28,46 @@ function Tools() {
   const [taskDescription, setTaskDescription] = useState("");
   const [estimatedTime, setEstimatedTime] = useState<number | null>(null);
   
-  // Task Ideas - Expanded list with more variety
+  // Task Ideas - Streamlined list
   const taskIdeas = [
     // Productivity Tasks
     "Clean out your email inbox",
-    "Update your resume",
     "Plan meals for the week",
     "Organize digital files",
     "Back up important documents",
-    "Learn a new keyboard shortcut",
     "Write in a journal",
     "Read an article about productivity",
     "Stretch for 5 minutes",
     "Drink a glass of water",
-    "Create a to-do list for tomorrow",
-    "Unsubscribe from unwanted email newsletters",
-    "Set up calendar reminders for upcoming events",
-    "Organize your digital photos",
-    "Update your password manager",
     
     // Personal Development
     "Read a chapter of a book",
     "Practice meditation for 10 minutes",
-    "Learn 5 new vocabulary words",
     "Watch an educational video",
-    "Practice a language on a learning app",
     "Write down three things you're grateful for",
     "Set a personal goal for the month",
     "Listen to an educational podcast",
-    "Take an online assessment or quiz",
-    "Research a topic you're curious about",
-    "Create a vision board for your goals",
-    "Write a letter to your future self",
     "Learn a new skill on YouTube",
     "Practice mindfulness for 5 minutes",
-    "Review and update your personal budget",
     
     // Health & Wellness
     "Do a quick 7-minute workout",
     "Prepare a healthy snack",
-    "Schedule your medical checkups",
-    "Track your water intake today",
     "Go for a 15-minute walk",
     "Try a new healthy recipe",
-    "Do a posture check and stretching",
-    "Plan your exercise for the week",
     "Take a screen break and rest your eyes",
     "Practice deep breathing for 5 minutes",
-    "Try a new yoga pose",
     "Make a smoothie with fruits and vegetables",
-    "Check your step count for the day",
     "Stretch your neck and shoulders",
-    "Write down your sleep schedule for the week",
     
     // Home Tasks
     "Declutter one small area",
     "Water your plants",
     "Make a grocery list",
     "Clean out your refrigerator",
-    "Sort through mail and papers",
     "Wipe down kitchen counters",
     "Vacuum one room",
     "Organize one drawer",
-    "Plan weekend activities",
-    "Check smoke detector batteries",
-    "Clean your microwave",
-    "Dust your bookshelves",
-    "Organize your spice rack",
-    "Wash your bed sheets",
     "Clean your bathroom mirror"
   ];
 
