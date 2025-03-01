@@ -85,7 +85,7 @@ const Index = () => {
                     onClick={() => navigate('/dashboard')}>
                 Explore
               </Button>
-              <Button variant="outline" className="text-white border-white hover:bg-white/20 transition-all duration-300">
+              <Button variant="ghost" className="text-white border-white hover:bg-white/20 transition-all duration-300">
                 Learn More
               </Button>
             </CardFooter>
@@ -100,5 +100,3 @@ const Index = () => {
     </div>
   );
 };
-
-export default Index;
