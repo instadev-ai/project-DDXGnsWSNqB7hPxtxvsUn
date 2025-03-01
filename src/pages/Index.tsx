@@ -8,7 +8,7 @@ import {
   Home
 } from "lucide-react";
 
-const Index = () => {
+function Index() {
   const navigate = useNavigate();
 
   return (
@@ -99,4 +99,6 @@ const Index = () => {
       </div>
     </div>
   );
-};
+}
+
+export default Index;
