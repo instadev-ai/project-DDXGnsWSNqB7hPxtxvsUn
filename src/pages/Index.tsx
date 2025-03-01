@@ -3,21 +3,37 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-blue-50 to-blue-100">
-      <Card className="w-[350px] shadow-lg">
-        <CardHeader>
-          <CardTitle className="text-3xl text-center text-blue-600">Hello World!</CardTitle>
-          <CardDescription className="text-center">Welcome to your new website</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <p className="text-center text-gray-600">
-            This is a simple Hello World website built with React and Tailwind CSS.
-          </p>
-        </CardContent>
-        <CardFooter className="flex justify-center">
-          <Button className="bg-blue-500 hover:bg-blue-600">Get Started</Button>
-        </CardFooter>
-      </Card>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 p-4">
+      <div className="max-w-md w-full">
+        <div className="text-center mb-8">
+          <h1 className="text-5xl font-bold text-white mb-2 drop-shadow-lg">Hello World</h1>
+          <p className="text-white text-xl opacity-90">Welcome to your beautiful website</p>
+        </div>
+        
+        <Card className="backdrop-blur-sm bg-white/10 border-none shadow-2xl">
+          <CardHeader className="pb-2">
+            <CardTitle className="text-2xl text-white text-center">Get Started</CardTitle>
+            <CardDescription className="text-center text-white/80">Your journey begins here</CardDescription>
+          </CardHeader>
+          <CardContent className="text-center pb-2">
+            <p className="text-white/90">
+              This enhanced website showcases modern design with beautiful gradients and glass-like effects.
+            </p>
+          </CardContent>
+          <CardFooter className="flex justify-center gap-4 pt-2">
+            <Button className="bg-white text-purple-600 hover:bg-white/90 transition-all duration-300 shadow-lg">
+              Explore
+            </Button>
+            <Button variant="outline" className="text-white border-white hover:bg-white/20 transition-all duration-300">
+              Learn More
+            </Button>
+          </CardFooter>
+        </Card>
+        
+        <div className="mt-8 text-center">
+          <p className="text-white/70 text-sm">Created with ❤️ using React & Tailwind CSS</p>
+        </div>
+      </div>
     </div>
   );
 };
